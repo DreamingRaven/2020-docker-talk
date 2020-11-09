@@ -1,0 +1,43 @@
+\documentclass{standalone}
+\usepackage[utf8]{inputenc}
+
+\usepackage{pgfgantt}
+
+\begin{document}
+      \begin{ganttchart}[
+        hgrid,
+        vgrid,
+        inline,
+        y unit title=0.5cm,
+        y unit chart=0.7cm,
+        x unit = .6cm,
+        bar height=0.6,
+        title height=1,
+        title label font=\footnotesize,
+        group top shift=0.9,
+        time slot format=isodate-yearmonth,
+        time slot unit=month
+        ]{2018-11}{2022-01}
+        \gantttitle[title label font=\bfseries]{The Augmented Agronomist}{37} \\
+          \gantttitlecalendar{year, month} \\
+            \ganttgroup{Data Collection System}{2018-11}{2021-11} \\
+              \ganttgroup{Nemesyst}{2018-11}{2019-08} \\
+                \ganttbar{Implementation}{2018-11}{2019-03} \\
+                \ganttbar{Journal Paper}{2019-01}{2019-08} \\
+            \ganttgroup{Data Collection and Aggregation}{2019-06}{2021-11} \\
+              \ganttbar{Data Collection}{2019-06}{2019-11} \\
+              \ganttbar{Data Paper}{2019-11}{2020-06} \\
+              \ganttbar{Data Collection}{2020-06}{2020-11} \\
+              \ganttbar{Data Collection}{2021-06}{2021-11} \\
+            \ganttgroup{Deep Learning}{2019-11}{2021-11} \\
+              \ganttbar{p-p neural networks}{2019-11}{2020-09} \\
+              \ganttbar{Yield Prediction}{2020-01}{2021-06} \\
+              \ganttbar{Uncertainty Metrics}{2020-10}{2021-06} \\
+              \ganttbar{p-p nn Paper}{2020-09}{2020-12} \\
+              \ganttbar{attention}{2021-04}{2021-06} \\
+              \ganttbar{yield Paper}{2021-05}{2021-11} \\
+            \ganttgroup{Thesis}{2020-11}{2022-01} \\
+            \ganttbar[]{Evaluation}{2020-11}{2021-06} \\
+            \ganttbar[]{Bulk Write up}{2021-02}{2022-01} \\
+      \end{ganttchart}
+\end{document}
