@@ -2,8 +2,10 @@
 \usepackage[utf8]{inputenc}
 
 % code snippets
-\usepackage{listings}
+% \usepackage{listings}
 % \lstset{inputpath=/home/arch/git/2020-docker-talk/content/src}
+% \usepackage{minted}
+\usepackage{minted}
 
 % biblatex (requires biber; sudo pacman -S biber)
 \usepackage[]{biblatex} % biblatex
@@ -75,7 +77,7 @@
 
   \begin{frame}
     \frametitle{Dockerfile build}
-    % \lsinputlisting{Dockerfile}
+    \inputminted{dockerfile}{content/src/Dockerfile}
 
   \end{frame}
 
