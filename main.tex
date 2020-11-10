@@ -2,9 +2,6 @@
 \usepackage[utf8]{inputenc}
 
 % code snippets
-% \usepackage{listings}
-% \lstset{inputpath=/home/arch/git/2020-docker-talk/content/src}
-% \usepackage{minted}
 \usepackage{minted}
 \newmintedfile[dockercode]{dockerfile}{
   % bgcolor=mintedbackground,
@@ -81,6 +78,15 @@
   \end{frame}
 
   \begin{frame}
+    \begin{figure}[th!]
+      \centering
+      \includegraphics[width=0.5\textwidth]{docker-is-born-meme.jpg}
+      \caption{Docker is born meme.}
+      \label{fig:docker_born}
+    \end{figure}
+  \end{frame}
+
+  \begin{frame}
     \frametitle{How This Worked in Industry}
     \begin{figure}[th!]
       \centering
@@ -131,7 +137,7 @@ docker build -t some/tag -f Dockerfile .
   \end{frame}
 
   \begin{frame}[fragile]% FRAGILE REQUIRED FOR BEAMER + MINTED TO WORK
-    \frametitle{Docker Image run}
+    \frametitle{Docker Image Use}
     \begin{itemize}
         \item Build a "Dockerfile" file and  tag it as "some/tag":
         \begin{bashcode}
@@ -141,45 +147,28 @@ docker build -t some/tag -f Dockerfile .
         \begin{bashcode}
 docker run -it some/tag bash
         \end{bashcode}
+        \item Same as above but now with gpu passthrough and directly calling nvidia-smi to view them
+        \begin{bashcode}
+docker run --gpus all -it some/tag nvidia-smi
+        \end{bashcode}
     \end{itemize}
   \end{frame}
 
   \begin{frame}
-    \frametitle{some frame title}
-    Citation \autocite{gentry2009fully, Goodfellow-et-al-2016}
-    Image:
-    \begin{figure}[th!]
-      \centering
-      \includegraphics[width=\textwidth]{encrypted_cnn.png}
-      \caption{Computational 1D CNN computational graph.}
-      \label{fig:gan}
-    \end{figure}
+    \frametitle{Docker Zero to Dev}
+    \begin{itemize}
+      \item Docker (single container)
+      \item Docker-Compose (single node container orchestrator)
+      \item Docker Swarm (or other multi node container orchestrator)
+    \end{itemize}
+    \begin{itemize}
+      \item Kubernetes
+      \item Apache Mesos
+    \end{itemize}
   \end{frame}
 
   \begin{frame}
-    \frametitle{equations frame title}
-    Equations:
-    \begin{equation}
-      \label{sigmoid}
-      \sigma(x) = \frac{1}{1+e^{-x}}
-    \end{equation}
-    \begin{equation}
-      \label{sigmoid_approx}
-      \sigma(x) \approx 0.5 + 0.197x + -0.004x^3
-    \end{equation}
-    \begin{equation}
-      \label{cnn_activation}
-      a^{<t>}=\sigma(w_{i}^{<t>}x^{<t>}+b_i^{<t>})
-    \end{equation}
-    \begin{equation}
-      \label{gradient}
-      \frac{df}{d\sigma} = (1-\sigma{x}) * \sigma{x}
-    \end{equation}
-    \begin{equation}
-      \label{weight_update}
-      % learning rate
-      w_i^{j+1<t>} = w_i^{j<t>} - (l * \frac{df}{dw_i^{j<t>}})
-    \end{equation}
+    \frametitle{Docker-Compose}
   \end{frame}
 
   \begin{frame}[allowframebreaks]
