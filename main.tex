@@ -6,6 +6,44 @@
 % \lstset{inputpath=/home/arch/git/2020-docker-talk/content/src}
 % \usepackage{minted}
 \usepackage{minted}
+\newmintedfile[dockercode]{dockerfile}{
+  % bgcolor=mintedbackground,
+  fontfamily=tt,
+  linenos=true,
+  numberblanklines=true,
+  numbersep=5pt,
+  gobble=0,
+  frame=leftline,
+  framerule=0.4pt,
+  framesep=2mm,
+  funcnamehighlighting=true,
+  tabsize=4,
+  obeytabs=false,
+  mathescape=false
+  samepage=false, %with this setting you can force the list to appear on the same page
+  showspaces=false,
+  showtabs =false,
+  texcl=false,
+}
+\newminted[bashcode]{bash}{
+  % bgcolor=mintedbackground,
+  fontfamily=tt,
+  linenos=true,
+  numberblanklines=true,
+  numbersep=5pt,
+  gobble=0,
+  frame=leftline,
+  framerule=0.4pt,
+  framesep=2mm,
+  funcnamehighlighting=true,
+  tabsize=4,
+  obeytabs=false,
+  mathescape=false
+  samepage=false, %with this setting you can force the list to appear on the same page
+  showspaces=false,
+  showtabs =false,
+  texcl=false,
+}
 
 % biblatex (requires biber; sudo pacman -S biber)
 \usepackage[]{biblatex} % biblatex
@@ -18,7 +56,7 @@
 
 \usetheme{Boadilla}
 \usecolortheme{rose}
-\beamerdefaultoverlayspecification{<+->} % this will turn it into slides
+% \beamerdefaultoverlayspecification{<+->} % this will turn it into slides
 
 \title{Dockerisation}
 \subtitle{Container technologies, for ease of development and deployment}
@@ -77,12 +115,29 @@
 
   \begin{frame}
     \frametitle{Dockerfile build}
-    \inputminted{dockerfile}{content/src/Dockerfile}
-
+    % \inputminted{dockerfile}{content/src/Dockerfile}
+    \textbf{\textit{./Dockerfile}}:
+    \dockercode{content/src/Dockerfile}
+    to build this file and tag it with \textit{"some/tag"}:
+    \mint{bash}|docker build -t some/tag -f Dockerfile .|
   \end{frame}
 
   \begin{frame}
+    \frametitle{Dockerfile Build This Presentation}
+    \textbf{\textit{./Dockerfile}}:
+    \dockercode{Dockerfile}
+  \end{frame}
+
+  \begin{frame}[fragile]% FRAGILE REQUIRED FOR BEAMER + MINTED TO WORK
     \frametitle{Docker Image run}
+    \begin{itemize}
+        \item Build containers with:
+    \end{itemize}
+    \begin{bashcode}% minted alias environment for bash specific code
+      sudo docker run -it archer/test
+    \end{bashcode}
+    to run this image named \textit{"some/tag"} as a container now:
+    \mint{bash}|docker run -it some/tag bash|
   \end{frame}
 
   \begin{frame}

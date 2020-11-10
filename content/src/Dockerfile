@@ -1,3 +1,4 @@
+# choose from image:tag on hub.docker.com registry
 FROM archlinux:latest
 
 # prepare pacman for use
