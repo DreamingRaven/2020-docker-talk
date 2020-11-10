@@ -113,13 +113,15 @@
     \end{figure}
   \end{frame}
 
-  \begin{frame}
+  \begin{frame}[fragile]
     \frametitle{Dockerfile build}
     % \inputminted{dockerfile}{content/src/Dockerfile}
     \textbf{\textit{./Dockerfile}}:
     \dockercode{content/src/Dockerfile}
-    to build this file and tag it with \textit{"some/tag"}:
-    \mint{bash}|docker build -t some/tag -f Dockerfile .|
+    to build this file (-f Dockerfile) located in this directory ('.') and tag it with name: \textit{"some/tag"}:
+    \begin{bashcode}
+docker build -t some/tag -f Dockerfile .
+    \end{bashcode}
   \end{frame}
 
   \begin{frame}
@@ -131,13 +133,15 @@
   \begin{frame}[fragile]% FRAGILE REQUIRED FOR BEAMER + MINTED TO WORK
     \frametitle{Docker Image run}
     \begin{itemize}
-        \item Build containers with:
+        \item Build a "Dockerfile" file and  tag it as "some/tag":
+        \begin{bashcode}
+docker build -t some/tag -f Dockerfile .
+        \end{bashcode}
+        \item Run bash from inside this image known as "some/tag" interactively:
+        \begin{bashcode}
+docker run -it some/tag bash
+        \end{bashcode}
     \end{itemize}
-    \begin{bashcode}% minted alias environment for bash specific code
-      sudo docker run -it archer/test
-    \end{bashcode}
-    to run this image named \textit{"some/tag"} as a container now:
-    \mint{bash}|docker run -it some/tag bash|
   \end{frame}
 
   \begin{frame}
